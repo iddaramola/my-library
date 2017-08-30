@@ -15,7 +15,8 @@ block content
         span.text-warning #{val.status} 
       if val.status!='Available'
         //-span  (Due: #{val.due_back} )
-        span Due: #{val.due_back_formatted}
+        //-span Due: #{val.due_back_formatted}
+        span Due: #{val.due_back_yyyy_mm_dd}
 
   else
     li There are no book copies in this library.

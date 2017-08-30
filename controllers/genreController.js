@@ -52,7 +52,7 @@ exports.genre_detail = function(req, res, next) {
 };
 
 // Display Genre create form on GET
-exports.genre_create_get = function(req, res) {
+exports.genre_create_get = function(req, res, next) {
   //  res.send('NOT IMPLEMENTED: Genre create GET');
   res.render('genre_form', { title: 'Create Genre' });
 };
@@ -199,7 +199,7 @@ exports.genre_update_post = function(req, res, next) {
     else {
         // Data from form is valid.
         //Check if Genre with same name already exists
-        Genre.findByIdAndUpdate(req.params.id, genre, {} function(err, thegenre){
+        Genre.findByIdAndUpdate(req.params.id, genre, {}, function(err, thegenre){
           if (err) return next(err);
           //if the execution flow reaches here, we are Successful
           //redirect to detail page

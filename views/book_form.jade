@@ -11,12 +11,10 @@ block content
       label(for='author') Author:
       select#author.form-control(type='select', placeholder='Select author' name='author' required='true' )
         for author in authors
-          if book
-          //- Handle GET form, where book.author is an object, and POST form, where it is a string.
-          //- 'if book' is TRUE when form is to be re-displayed or when it is to be updated.
-            option(value=author._id selected=(author._id.toString()==book.author._id.toString() || author._id.toString()==book.author.toString()) ? 'selected' : false ) #{author.name}
-          else
-            option(value=author._id) #{author.name}
+         if book
+          option(value=author._id selected=(author._id.toString()==book.author._id.toString() || author._id.toString()==book.author.toString()) ? 'selected' : false ) #{author.name}
+         else
+          option(value=author._id) #{author.name}
     div.form-group
       label(for='summary') Summary:
       input#summary.form-control(type='textarea', placeholder='Summary' name='summary' value=(undefined===book ? '' : book.summary) required='true')
